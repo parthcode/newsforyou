@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$USER_HOME$/PycharmProjects/AutoComplete/.idea/AutoComplete.iml" filepath="$USER_HOME$/PycharmProjects/AutoComplete/.idea/AutoComplete.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/newsHtml.iml" filepath="$PROJECT_DIR$/.idea/newsHtml.iml" />
+      <module fileurl="file://$USER_HOME$/PycharmProjects/newsforyou/.idea/newsforyou.iml" filepath="$USER_HOME$/PycharmProjects/newsforyou/.idea/newsforyou.iml" />
+    </modules>
+  </component>
+</project>

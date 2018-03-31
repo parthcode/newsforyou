@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500,700);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700);
+
+*, *::before, *::after { box-sizing: border-box; -webkit-box-sizing: border-box; }
+.cf::after, .cf::before { content: ' '; display: table; }
+.cf::after { clear: both; }
+
+body, html {
+	height: 100%;
+}
+
+body {
+	background: #fff;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	color: #484848;
+}
+
+a {
+	text-decoration: none;
+	outline: none;
+}
+
+.red {
+	color: #ef5350;
+}
+
+.blue {
+	color: #0277bd;
+}
+
+.orange {
+	color: #fd6b0d;
+}
+
+.yellow {
+  color: #e5af0e;
+}
+
+.green {
+	color: #2e7d32;
+}
+
+.cyan {
+	color: #3f9489;
+}
+
+.full-width {
+	position: relative;
+	max-width: 906px;
+	margin: 20px auto;
+}
+
+.col-md-3 {
+	width: 100%;
+	margin-top: 10px;
+}
+
+/* ---- Switch button ---- */
+/*.icon-switch {
+	width: 100%;
+}
+
+.card {
+	float: right;
+	font-size: 20px;
+	margin-right: 20px;
+	display: inline-block;
+}
+
+.list {
+	float: right;
+	font-size: 20px;
+	display: inline-block;
+	margin-right: 5px;
+}
+
+.active {
+	color: #0990aa;
+}*/
+.Switch {
+	position: relative;
+	float: right;
+	font-weight: bold;
+	color: #fff;
+	width: 60px;
+	height: 30px;
+	border-radius: 15px;
+	background: #0990aa;
+	cursor: pointer;
+	-webkit-transition: background-color 0.3s ease-in-out;
+	-moz-transition   : background-color 0.3s ease-in-out;
+	-o-transition     : background-color 0.3s ease-in-out;
+	-ms-transition    : background-color 0.3s ease-in-out;
+}
+
+.Switch.list {
+	background: #fd7117;
+}
+
+.Switch span {
+	position: relative;
+	display: inline-block;
+	width: 25px;
+	top: 6px;
+}
+
+.Switch span.on {
+	left: 9px;
+}
+
+.Switch span.off {
+	left: 6px;
+}
+
+.Switch .Toggle {
+	position: absolute;
+	right: 0;
+	top: 2px;
+	width: 26px;
+	height: 26px;
+	border-radius: 13px;
+	background: #fff;
+	z-index: 999;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition   : all 0.3s ease-in-out;
+	-o-transition     : all 0.3s ease-in-out;
+	-ms-transition    : all 0.3s ease-in-out;
+}
+
+.Switch.list .Toggle { left: 1px; }
+.Switch.card .Toggle { left: 33px; }
+
+/* ---- Card View ---- */
+.card-view {
+	background: #fff;
+	-webkit-box-shadow: 0px 1px 1px 0px rgba(204,204,204,0.2);
+	-moz-box-shadow   : 0px 1px 1px 0px rgba(204,204,204,0.2);
+	box-shadow        : 0px 1px 1px 0px rgba(204,204,204,0.2);
+	float: left;
+	width: 292px;
+	margin: 5px;
+}
+
+.container {
+	border: 1px solid #efefef;
+	padding: 15px;
+}
+
+.bg {
+	display: block;
+	overflow: hidden;
+	max-height: 170px;
+	max-width: 292px;
+	background: #000;
+}
+
+.bg img {
+	-webkit-transform: translate3d(0,-5px,0);
+	transform: translate3d(0,-5px,0);
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transition: opacity 0.35s, transform 0.35s;
+}
+
+.bg:hover img {
+	opacity: 0.7;
+	transform: translate3d(0,0,0);
+	-webkit-transform: translate3d(0,0,0);
+}
+
+.tag_name {
+	font-family: 'Roboto Slab', serif;
+	font-size  : 12px;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	margin-bottom: 15px;
+	text-transform: uppercase;
+}
+
+/* COMPANY INFO ------------------------ */
+.c_logo {
+	display: table-cell;
+}
+
+.c_logo img {
+	display: inline-block;
+	outline: none;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+
+.c_info {
+	display: table-cell;
+	vertical-align: middle;
+	padding-top: 5px;
+	padding-left: 10px;
+	line-height: 18px;
+}
+
+.c_name {
+	font-size: 20px;
+	font-weight: 500;
+	color: #3c3c3c;
+}
+
+.c_industry {
+	font-weight: 400;
+	font-size: 12px;
+	letter-spacing: 0.05em;
+	color: #7e8890;
+}
+
+.card-view #c_stars, #c_stars span { /* white star bottom */
+	display: inline-block;
+	background: url('https://s15.postimg.org/igu2opvh3/stars.png') 0 -12px repeat-x;
+	width: 60px;
+	height: 12px;
+}
+
+.card-view #c_stars span { /* orange stars overlay  - set width by JS code */
+	background-position: 0 0;
+	vertical-align: super;
+}
+
+.c_num {
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 500;
+	vertical-align: super;
+}
+
+.c_content {
+	margin-top: -10px;
+}
+
+.c_content p {
+	line-height: 21px;
+}
+
+.c_content .title {
+	color: #484848;
+	font-weight: 500;
+	font-size: 16px;
+	letter-spacing: 0.02em;
+}
+
+.c_content .review {
+	font-weight: 300;
+	font-size: 14px;
+	letter-spacing: 0.05em;
+	margin-top: -10px;
+}
+
+ /* USER INFO ------------------------ */
+.user .user_avatar img {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+}
+
+.user .user_avatar {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.user .user_info {
+	display: table-cell;
+	vertical-align: middle;
+	color: rgba(0,0,0,0.35);
+	font-size: 14px;
+	line-height: 1.4;
+	padding-left: 10px;
+}
+
+.user .user_name {
+	font-weight: 500;
+}
+
+/* ---- List View ---- */
+.list-view {
+	background: #fff;
+	-webkit-box-shadow: 0px 1px 1px 0px rgba(204,204,204,0.2);
+	-moz-box-shadow   : 0px 1px 1px 0px rgba(204,204,204,0.2);
+	box-shadow        : 0px 1px 1px 0px rgba(204,204,204,0.2);
+	float: left;
+	margin: 5px;
+}
+
+.list-view:last-child {
+	margin-bottom: 20px;
+}
+
+.list-view .container {
+	border: 1px solid #efefef;
+	padding: 15px;
+}
+
+.list-view .bg {
+	display: none;
+}
+
+.list-view .bg img {
+	-webkit-transform: translate3d(0,-5px,0);
+	transform: translate3d(0,-5px,0);
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transition: opacity 0.35s, transform 0.35s;
+}
+
+.list-view .bg:hover img {
+	opacity: 0.7;
+	transform: translate3d(0,0,0);
+	-webkit-transform: translate3d(0,0,0);
+}
+
+.list-view .tag_name {
+	font-family: 'Roboto Slab', serif;
+	font-size  : 12px;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+}
+
+/* COMPANY INFO ------------------------ */
+.list-view .c_logo {
+	display: none;
+}
+
+.list-view .c_logo img {
+	display: none;
+}
+
+.list-view .c_info {
+	display: table-cell;
+	vertical-align: middle;
+	padding-top: 5px;
+	padding-left: 0;
+	line-height: 18px;
+}
+
+.list-view .c_name {
+	font-size: 20px;
+	font-weight: 500;
+	color: #3c3c3c;
+}
+
+.list-view .c_industry {
+	font-weight: 400;
+	font-size: 12px;
+	letter-spacing: 0.05em;
+	color: #7e8890;
+}
+
+.list-view #c_stars, #c_stars span { /* white star bottom */
+	display: inline-block;
+	background: url('https://s15.postimg.org/igu2opvh3/stars.png') 0 -12px repeat-x;
+	width: 60px;
+	height: 12px;
+}
+
+.list-view #c_stars span { /* orange stars overlay  - set width by JS code */
+	background-position: 0 0;
+	vertical-align: super;
+}
+
+.list-view .c_num {
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 500;
+	vertical-align: super;
+}
+
+.list-view .c_content {
+	margin-top: -15px;
+}
+
+.list-view .c_content p {
+	line-height: 21px;
+}
+
+.list-view .c_content .title {
+	color: #484848;
+	font-weight: 500;
+	font-size: 16px;
+	letter-spacing: 0.02em;
+}
+
+.list-view .c_content .review {
+	font-weight: 300;
+	font-size: 14px;
+	letter-spacing: 0.05em;
+	margin-top: -10px;
+}
+
+ /* USER INFO ------------------------ */
+.list-view .user .user_avatar img {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+}
+
+.user .user_avatar {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.list-view .user .user_info {
+	display: table-cell;
+	vertical-align: middle;
+	color: rgba(0,0,0,0.35);
+	font-size: 14px;
+	line-height: 1.4;
+	padding-left: 10px;
+}
+
+.list-view .user .user_name {
+	font-weight: 500;
+}
+
+@media screen and (max-width: 920px) and (min-width: 621px) {
+	.full-width {
+		max-width: 604px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+@media screen and (max-width: 620px){
+	.full-width {
+		max-width: 302px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+</style>
+<body>
+<script>
+    var $container = $(".col-md-3");
+    $container.imagesLoaded(function() {
+      $container.masonry({
+        itemSelector: '.card-view',
+        columnWidth: 302
+      });
+
+    });
+
+    $.fn.stars = function() {
+      return $(this).each(function() {
+        var num = $(this).data("star");
+        $(this).html($("<span />").width(Math.max(0, Math.min(5, num)) * 12));
+      })
+    };
+
+    $(function() {
+
+      $('.Switch').click(function() {
+        $(this).toggleClass('list').toggleClass('card');
+        // check current view mode: 'list' or 'card'
+        if($(this).hasClass('list')) {
+          console.log('List view');
+          $(".card-view").attr("class", "list-view");
+          $(".list-view").removeAttr("style");
+        } else {
+          console.log('Card view');
+          $(".list-view").attr("class", "card-view");
+          var container = document.querySelector('.col-md-3');
+          // Reload masonry again
+          var msnry = new Masonry( container, {
+            itemSelector: '.card-view',
+            columnWidth: 302
+          });
+        }
+      });
+
+      // $("#list").click(function() {
+      //   $("#list").addClass("active");
+      //   $("#card").removeClass("active");
+      //   $(".card-view").attr("class", "list-view");
+      //   $(".list-view").removeAttr("style");
+      // });
+
+      // $('#card').click(function() {
+      //   $("#card").removeClass("active");
+      //   $("#list").removeClass("active");
+      //   $("#card").addClass("active");
+      //   $(".list-view").attr("class", "card-view");
+      //   var container = document.querySelector('.col-md-3');
+      //   var msnry = new Masonry( container, {
+      //     itemSelector: '.card-view',
+      //     columnWidth: 302
+      //   });
+      // });
+
+      $("span#c_stars").stars();
+    });
+</script>
+
+<div class="full-width">
+    <div class="c_content">
+        <p class="review"><h1>Top News</h1> </p>
+    </div>
+    <div class="col-md-3">
+    <div class="card-view">
+          <div class='bg'>
+            <a href={{url0}} target="_blank">
+            <img src={{urlToImage0}} alt="company image" style="width:100%">
+            </a>
+          </div>
+        <div class="container">
+          <div class="tag_name red"></div>
+          <div class="company">
+            <div class="c_content">
+              <a href={{url0}}  target="_blank" class="title"><p>{{title0}}</p></a>
+              <p class="review"></p>
+            </div>
+          </div> <!-- end .company -->
+
+          <div class="user">
+            <div class="user_avatar">
+
+            </div>
+            <div class="user_info">
+              <a href="#" class="user_name orange"></a>{{date}}<br>
+            </div>
+          </div> <!-- end .user -->
+        </div> <!-- end .container -->
+      </div><!-- end card -->
+    <div class="card-view">
+          <div class='bg'>
+              <a href={{url1}} target="_blank">
+            <img src={{urlToImage1}} alt="company image" style="width:100%">
+              </a>
+          </div>
+        <div class="container">
+          <a href={{url1}}><div class="tag_name red"></div></a>
+          <div class="company">
+            <div class="c_content">
+              <a href={{url1}} target="_blank" class="title"><p>{{title1}}</p></a>
+              <p class="review"></p>
+            </div>
+          </div> <!-- end .company -->
+
+          <div class="user">
+            <div class="user_avatar">
+
+            </div>
+            <div class="user_info">
+              <a href="#" class="user_name orange"></a>{{date}}<br>
+            </div>
+          </div> <!-- end .user -->
+        </div> <!-- end .container -->
+      </div> <!-- end card -->
+    <div class="card-view">
+          <div class='bg'>
+              <a href={{url2}} target="_blank">
+            <img src={{urlToImage2}} alt="company image" style="width:100%">
+              </a>
+          </div>
+        <div class="container">
+          <a href={{url2}}><div target="_blank" class="tag_name red"></div></a>
+          <div class="company">
+            <div class="c_content">
+              <a href={{url2}} target="_blank" class="title"><p>{{title2}}</p></a>
+              <p class="review"></p>
+            </div>
+          </div> <!-- end .company -->
+
+          <div class="user">
+            <div class="user_avatar">
+
+            </div>
+            <div class="user_info">
+              <a href="#" class="user_name orange"></a>{{date}}<br>
+            </div>
+          </div> <!-- end .user -->
+        </div> <!-- end .container -->
+      </div> <!-- end card -->
+    <div class="card-view">
+          <div class='bg'>
+              <a href={{url3}} target="_blank">
+            <img src={{urlToImage3}} alt="company image" style="width:100%">
+              </a>
+          </div>
+        <div class="container">
+          <a href='#'><div class="tag_name red">News Link</div></a>
+          <div class="company">
+
+            <div class="c_content">
+              <a href={{url3}} target="_blank" class="title"><p>{{title3}}</p></a>
+              <p class="review">{{desp3}}</p>
+            </div>
+          </div> <!-- end .company -->
+          <div class="user">
+            <div class="user_avatar">
+
+            </div>
+            <div class="user_info">
+              <a href="#" class="user_name orange"></a>{{date}}<br>
+            </div>
+          </div> <!-- end .user -->
+        </div> <!-- end .container -->
+      </div> <!-- end card -->
+    <div class="card-view">
+          <div class='bg'>
+              <a href={{url4}} target="_blank">
+            <img src={{urlToImage4}} alt="company image" style="width:100%">
+              </a>
+          </div>
+        <div class="container">
+          <a href='#'><div class="tag_name red">News Link</div></a>
+          <div class="company">
+
+            <div class="c_content">
+              <a href={{url4}} target="_blank" class="title"><p>{{title4}}</p></a>
+              <p class="review">{{desp4}}</p>
+            </div>
+          </div> <!-- end .company -->
+          <div class="user">
+            <div class="user_avatar">
+
+            </div>
+            <div class="user_info">
+              <a href="#" class="user_name orange"></a>{{date}}<br>
+            </div>
+          </div> <!-- end .user -->
+        </div> <!-- end .container -->
+      </div> <!-- end card -->
+    <div class="card-view">
+          <div class='bg'>
+              <a href={{url5}} target="_blank">
+            <img src={{urlToImage5}} alt="company image" style="width:100%">
+              </a>
+          </div>
+        <div class="container">
+          <a href='#'><div class="tag_name red">News Link</div></a>
+          <div class="company">
+
+            <div class="c_content">
+              <a href={{url5}} target="_blank" class="title"><p>{{title5}}</p></a>
+              <p class="review">{{desp5}}</p>
+            </div>
+          </div> <!-- end .company -->
+          <div class="user">
+            <div class="user_avatar">
+
+            </div>
+            <div class="user_info">
+              <a href="#" class="user_name orange"></a>{{date}}<br>
+            </div>
+          </div> <!-- end .user -->
+        </div> <!-- end .container -->
+      </div> <!-- end card -->
+
+
+       <!--<div class="card-view">-->
+          <!--<div class='bg'>-->
+            <!--<img src={{urlToImage5}} alt="company image" style="width:100%">-->
+          <!--</div>-->
+        <!--<div class="container">-->
+          <!--<a href='#'><div class="tag_name red">News Link</div></a>-->
+          <!--<div class="company">-->
+
+            <!--<div class="c_content">-->
+              <!--<a href='#' class="title"><p>{{title5}}</p></a>-->
+              <!--<p class="review">{{desp5}}</p>-->
+            <!--</div>-->
+          <!--</div> &lt;!&ndash; end .company &ndash;&gt;-->
+          <!--<div class="user">-->
+            <!--<div class="user_avatar">-->
+
+            <!--</div>-->
+            <!--<div class="user_info">-->
+              <!--<a href="#" class="user_name orange"></a>{{date}}<br>-->
+            <!--</div>-->
+          <!--</div> &lt;!&ndash; end .user &ndash;&gt;-->
+        <!--</div> &lt;!&ndash; end .container &ndash;&gt;-->
+      <!--</div> &lt;!&ndash; end card &ndash;&gt;-->
+
+
+    </div> <!-- end col-md-3 -->
+
+</div>
+
+</body>
+</html>

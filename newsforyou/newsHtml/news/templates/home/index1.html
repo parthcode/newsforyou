@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>News</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 30%;
+    border-radius: 5px;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+img {
+    border-radius: 5px 5px 0 0;
+}
+
+.container {
+    padding: 2px 16px;
+}
+</style>
+</head>
+<body>
+<div class="headers">
+  <div class="inner">
+    <h1>Top News for the day</h1>
+    <p>____________________________________________</p>
+  </div>
+</div>
+
+<div class="container-fluid bg-3 text-center">
+
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="card">
+    <a href={{url0}} target="_blank" style="color: #993333;text-decoration:none;">
+        <img src={{urlToImage0}} alt="Avatar" style="width:100%">
+        <div class="container">
+            <h4><b>{{title0}}</b></h4>
+        </div>
+    </a>
+</div>
+    </div>
+    <div class="col-sm-3">
+      <a href={{url1}} target="_blank" style="color: #993333;text-decoration:none;">
+      <p>{{title1}}</p>
+      <img src={{urlToImage1}} class="img-responsive" style="width:100%" alt="Image">
+      </a>
+    </div>
+    <div class="col-sm-3">
+      <a href={{url2}} target="_blank" style="color: #993333;text-decoration:none;">
+      <p>{{title2}}</p>
+      <img src={{urlToImage2}} class="img-responsive" style="width:100%" alt="Image">
+      </a>
+    </div>
+    <div class="col-sm-3">
+      <a href={{url3}} target="_blank" style="color: #993333;text-decoration:none;">
+      <p>{{title3}}</p>
+      <img src={{urlToImage3}} class="img-responsive" style="width:100%" alt="Image">
+      </a>
+    </div>
+  </div>
+</div><br>
+
+<div class="container-fluid bg-3 text-center">
+  <div class="row">
+    <div class="col-sm-3">
+      <a href={{url4}} target="_blank" style="color: #993333;text-decoration:none;">
+      <p>{{title4}}</p>
+      <img src={{urlToImage4}} class="img-responsive" style="width:100%" alt="Image">
+      </a>
+    </div>
+    <div class="col-sm-3">
+      <a href={{url5}} target="_blank" style="color: #993333;text-decoration:none;">
+      <p>{{title5}}</p>
+      <img src={{urlToImage5}} class="img-responsive" style="width:100%" alt="Image">
+      </a>
+    </div>
+    <div class="col-sm-3">
+      <a href={{url6}} target="_blank" style="color: #993333;text-decoration:none;">
+      <p>{{title6}}</p>
+      <img src={{urlToImage6}} class="img-responsive" style="width:100%" alt="Image">
+      </a>
+    </div>
+    <div class="col-sm-3">
+      <a href={{url7}} target="_blank" style="color: #993333;text-decoration:none;">
+      <p>{{title7}}</p>
+      <img src={{urlToImage7}} class="img-responsive" style="width:100%" alt="Image">
+      </a>
+    </div>
+  </div>
+</div><br><br>
+
+<footer class="container-fluid text-center">
+  <p>Footer Text</p>
+</footer>
+
+</body>
+</html>
