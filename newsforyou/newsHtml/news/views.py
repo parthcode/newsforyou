@@ -10,9 +10,8 @@ import datetime
 
 def index(request):
     newsApi = requests.get(
-        url='https://newsapi.org/v2/top-headlines?sources=google-news-in&apiKey=606014a906f14ea59a48b33381c5f972')
-    #https://newsapi.org/v1/articles?source=the-next-web&sortBy=latest&apiKey=606014a906f14ea59a48b33381c5f972
-    #indian https://newsapi.org/v2/top-headlines?sources=google-news-in&apiKey=606014a906f14ea59a48b33381c5f972
+        url='https://newsapi.org/v2/top-headlines?sources=google-news-in&apiKey=<tokenId>)
+   
     dump = newsApi.json()
     # dumps the json object into an element
     json_str = json.dumps(dump)
